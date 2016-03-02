@@ -17,10 +17,17 @@ module Listable
     return dates
   end
   def format_priority
-    value = " ⇧".colorize(:red) if @priority == "high"
-    value = " ⇨".colorize(:yellow)if @priority == "medium"
-    value = " ⇩".colorize(:green) if @priority == "low"
-    value = "" if !@priority
+    if @priority == "high" then
+      value = " ⇧".colorize(:red) 
+    elsif @priority == "medium"
+      value = " ⇨".colorize(:yellow)
+    elsif @priority == "low"
+      value = " ⇩".colorize(:green) 
+    elsif !@priority
+      value = "" 
+    else
+      raise UdaciListErrors::InvalidPriorityValue, "Not a valid priority level!"
+    end
     return value
   end
   
