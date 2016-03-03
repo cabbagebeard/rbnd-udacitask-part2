@@ -8,7 +8,7 @@ class TodoItem
     @priority = options[:priority]
   end
   def details
-    format_description(@description) + "due: " + format_date(due: @due) + format_priority
+    "Todo: ".colorize(:green) +  format_description(@description) + "due: " + format_date(due: @due) + format_priority
   end
   def type_name
     "todo"

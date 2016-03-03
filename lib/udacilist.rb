@@ -23,6 +23,10 @@ class UdaciList
       raise UdaciListErrors::IndexExceedsListSize, "That item number does not exist!"
     end
   end
+  def delete_by_type(type)
+    @items.delete_if { |item| item.type_name == type }
+    puts "All #{type}s deleted".colorize(:red)
+  end
   def all
     table = tablify(@items)
     table.title = @title
@@ -34,7 +38,6 @@ class UdaciList
     table = tablify(filtered)
     table.title = "#{type.capitalize} List"
     puts table
-
   end
   def tablify(items)
     rows = []

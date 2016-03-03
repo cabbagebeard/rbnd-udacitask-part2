@@ -46,3 +46,5 @@ new_list.add("link", "http://ruby-doc.org")
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter("event")
+new_list.delete_by_type("event")
+new_list.all
