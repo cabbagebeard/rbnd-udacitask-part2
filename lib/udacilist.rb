@@ -24,11 +24,23 @@ class UdaciList
     end
   end
   def all
-    puts "-" * @title.length
-    puts @title
-    puts "-" * @title.length
-    @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+    table = tablify(@items)
+    table.title = @title
+    puts table
+  end
+  
+  def filter(type)
+    filtered =  @items.select { |item| item.type_name == type }
+    table = tablify(filtered)
+    table.title = "#{type.capitalize} List"
+    puts table
+
+  end
+  def tablify(items)
+    rows = []
+    items.each_with_index do |item, position|
+      rows << [position + 1, item.details]
     end
+    Terminal::Table.new :rows => rows
   end
 end
