@@ -32,6 +32,13 @@ class UdaciList
     table.title = @title
     puts table
   end
+  def change_priority(index, priority)
+    item = @items[index - 1]
+    if item.type_name == "todo" then
+      item.priority = priority
+    end
+    puts "Priority changed to: #{priority}"
+  end
   
   def filter(type)
     filtered =  @items.select { |item| item.type_name == type }

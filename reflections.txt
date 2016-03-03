@@ -1,13 +1,21 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+  I used the terminal-table because it was easy to employ and it made the lists easier on the eyes.
+  
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) delete_by_type: 
+    Sometimes it's nice to blow off all your priorities at once. Got a bunch of events coming up that you just don't feel like going to? Blow them all off in one swift move.
+  b) change_priority:
+    You never know when something is going to become more or less of a priority. A todo list should be as flexible as you are.
 
 # REFLECTIONS
 # -------------------------------------------------------
-1. How long did you spend working on this project?
+1. How long did you spend working on this project? 
+  Maybe 3 hours?
 2. What was the most rewarding challenge you conquered?
-3. What two additional features did you build? Why?
+  Finally deciding upon a gem after a bit of reading and trial/error.
+3. What two additional features did you build? Why? 
+  Stated above
 4. Where do you still have room to grow?
+  My code still looks/feels sloppy.
