@@ -5,6 +5,7 @@ class UdaciList
     @title = options[:title] || "Untitled List"
     @items = []
   end
+  
   def add(type, description, options={})
     type = type.downcase
     if type == "todo" then 
@@ -17,21 +18,25 @@ class UdaciList
       raise UdaciListErrors::InvalidItemType, "Not a valid type of list!"
     end
   end
+  
   def delete(index)
     @items.delete_at(index - 1)
     if index >= @items.length then
       raise UdaciListErrors::IndexExceedsListSize, "That item number does not exist!"
     end
   end
+  
   def delete_by_type(type)
     @items.delete_if { |item| item.type_name == type }
     puts "All #{type}s deleted".colorize(:red)
   end
+  
   def all
     table = tablify(@items)
     table.title = @title
     puts table
   end
+  
   def change_priority(index, priority)
     item = @items[index - 1]
     if item.type_name == "todo" then
@@ -46,6 +51,7 @@ class UdaciList
     table.title = "#{type.capitalize} List"
     puts table
   end
+  
   def tablify(items)
     rows = []
     items.each_with_index do |item, position|
@@ -53,4 +59,5 @@ class UdaciList
     end
     Terminal::Table.new :rows => rows
   end
+  
 end
